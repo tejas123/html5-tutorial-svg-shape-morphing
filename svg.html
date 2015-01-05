@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>svg</title>
+<style type="text/css">
+button {
+  border: 0;
+  background: linear-gradient(
+    to bottom,
+    #444,
+    #111
+  );
+  border-radius: 10px;
+  padding:4px 30px 11px;
+  outline: 0;
+  display: inline-block;
+  width: 220px;
+  text-align: left;
+}
+button:hover, button:active {
+  background: black;
+}
+button svg {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+button span {
+  font-size: 22px;
+  position: relative;
+  top: 10px;
+  color: white;
+}
+
+
+body {
+  padding: 20px;
+  text-align: center;
+  background:#993030;
+}
+
+</style>
+<script src="js/jquery-1.10.2.js"></script>
+<script>
+$(document).ready(function(e) {
+    	
+
+var icon = document.getElementById("button"),
+    buttonText = document.getElementById("button-text"),
+    animationToClose = document.getElementById("animation-to-open"),
+    animationToOpen = document.getElementById("animation-to-close"),
+    animationToYellow = document.getElementById("animation-to-white");
+
+button.addEventListener('click', function() {
+   
+  if (button.classList.contains("opened")) {
+    button.classList.remove("opened");
+    animationToOpen.beginElement();
+    animationToYellow.beginElement();
+    buttonText.innerHTML = "Open";
+  } else {
+    button.classList.add("opened");
+    animationToClose.beginElement();
+    //animationToGreen.beginElement();
+    buttonText.innerHTML = "Opened!";
+	
+  }
+  
+}, false);
+
+});
+</script>
+
+</head>
+
+
+
+<body>
+
+<button id="button">
+  <svg viewBox="0 0 194.6 185.1" xmlns="http://www.w3.org/2000/svg">
+   
+    <polygon fill="#FFFFFF" points="77.3,120 0,60.9 145.6,60.7 145.9,80.1 143.4,185.1 0,183.5 0,70.1 98.6,158.1 50,170.7 
+  	147.2,60.9">
+      
+      <animate id="animation-to-open" begin="indefinite" fill="freeze" attributeName="points" dur="500ms" to="77.3,10 0,60.9 145.6,60.7 145.9,80.1 143.4,185.1 0,183.5 0,70.1 98.6,158.1 50,170.7 
+  	147.2,60.9"/>
+      
+      
+      <animate id="animation-to-close" begin="indefinite" fill="freeze" attributeName="points" dur="500ms" to="77.3,120 0,60.9 145.6,60.7 145.9,80.1 143.4,185.1 0,183.5 0,70.1 98.6,158.1 50,170.7 147.2,60.9"/>
+      
+      <animate id="animation-to-white" begin="indefinite" fill="freeze" attributeName="fill" dur="500ms" to="#FFFFFF"></animate>
+      
+    </polygon>
+    
+  </svg>
+  
+  <span id="button-text">Open</span>
+
+
+  
+</button>
+
+
+</body>
+</html>
